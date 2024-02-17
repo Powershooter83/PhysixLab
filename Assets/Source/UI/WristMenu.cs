@@ -18,6 +18,8 @@ public class WristMenu : MonoBehaviour
 
     [SerializeField] private Slider slider;
 
+    [SerializeField] private GameObject itemPanel;
+
 
     void Start()
     {
@@ -41,6 +43,10 @@ public class WristMenu : MonoBehaviour
         hand.GetPalmOutDirection(UxrHandSide.Left, out var palmOut);
         var isPointingUp = palmOut.y > 0.0f;
         canvas.SetActive(angle <= 30f && isPointingUp);
+        if (itemPanel.activeSelf)
+        {
+            itemContainer.SetActive(angle <= 30f && isPointingUp);
+        }
     }
 
 
