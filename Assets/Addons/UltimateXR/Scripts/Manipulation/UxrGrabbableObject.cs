@@ -373,12 +373,20 @@ namespace UltimateXR.Manipulation
         /// <summary>
         ///     Gets the vertical velocity factor that will be applied to the object when being thrown.
         /// </summary>
-        public float VerticalReleaseMultiplier => _verticalReleaseMultiplier;
+        public float VerticalReleaseMultiplier
+        {
+            get => _verticalReleaseMultiplier;
+            set => _verticalReleaseMultiplier = value;
+        }
 
         /// <summary>
         ///     Gets the horizontal velocity factor that will be applied to the object when being thrown.
         /// </summary>
-        public float HorizontalReleaseMultiplier => _horizontalReleaseMultiplier;
+        public float HorizontalReleaseMultiplier
+        {
+            get => _horizontalReleaseMultiplier;
+            set => _horizontalReleaseMultiplier = value;
+        }
 
         /// <summary>
         ///     Gets whether the object requires both hands grabbing it in order to rotate it.

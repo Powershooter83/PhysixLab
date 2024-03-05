@@ -3,6 +3,7 @@
 //   Copyright (c) VRMADA, All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 using System.Collections.Generic;
 using UltimateXR.Core;
 using UnityEngine;
@@ -60,9 +61,8 @@ namespace UltimateXR.Devices.Integrations.Meta
         {
             get
             {
-   
-   
-                if (UxrTrackingDevice.HeadsetDeviceName is "Meta Quest 2")
+                if (UxrTrackingDevice.HeadsetDeviceName is "Meta Quest 3" ||
+                    UxrTrackingDevice.HeadsetDeviceName is "Meta Quest 2")
                 {
                     yield return "Oculus Touch Controller - Left";
                     yield return "Oculus Touch Controller - Right";
