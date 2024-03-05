@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/UltimateXR/Examples/FullScene/UltimateXR_URP.unity
     guid: d026aa0551d251248a15d6e236c7803d
   - enabled: 1
+    path: Assets/Scenes/hub.unity
+    guid: 5f3dd611f00185845bf9f4f6d0eda417
+  - enabled: 1
     path: Assets/Scenes/basketballCourt.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
