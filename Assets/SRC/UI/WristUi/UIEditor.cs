@@ -18,6 +18,8 @@ public class UIEditor : MonoBehaviour
 
     [SerializeField] private GameObject items;
 
+    [SerializeField] private GameObject buildings;
+
     public void deleteGameobjects()
     {
         foreach (var obj in GameObject.FindGameObjectsWithTag("spawned"))
@@ -39,6 +41,7 @@ public class UIEditor : MonoBehaviour
     public void openGravitySideMenu()
     {
         items.SetActive(false);
+        buildings.SetActive(false);
         storeSidePanel.SetActive(false);
         if (lastClickedUi == 0 && gravitySidePanel.activeSelf)
         {
@@ -61,6 +64,7 @@ public class UIEditor : MonoBehaviour
     public void openVelocitySideMenu()
     {
         items.SetActive(false);
+        buildings.SetActive(false);
         storeSidePanel.SetActive(false);
         if (lastClickedUi == 1 && gravitySidePanel.activeSelf)
         {
@@ -80,6 +84,7 @@ public class UIEditor : MonoBehaviour
     public void openTracingSideMenu()
     {
         items.SetActive(false);
+        buildings.SetActive(false);
         storeSidePanel.SetActive(false);
         if (lastClickedUi == 2 && gravitySidePanel.activeSelf)
         {
@@ -99,6 +104,7 @@ public class UIEditor : MonoBehaviour
     public void openStoreSideMenu()
     {
         gravitySidePanel.SetActive(false);
+        buildings.SetActive(false);
         items.SetActive(true);
         if (lastClickedUi == 3 && storeSidePanel.activeSelf)
         {
@@ -118,9 +124,11 @@ public class UIEditor : MonoBehaviour
     public void openWallSideMenu()
     {
         gravitySidePanel.SetActive(false);
+        buildings.SetActive(true);
         items.SetActive(false);
         if (lastClickedUi == 4 && storeSidePanel.activeSelf)
         {
+            buildings.SetActive(false);
             storeSidePanel.SetActive(false);
         }
         else if (!storeSidePanel.activeSelf)

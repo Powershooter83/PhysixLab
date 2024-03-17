@@ -28,10 +28,9 @@ public class Test : MonoBehaviour
         {
             hasBeenPlaced = true;
             _rigidbody.isKinematic = true;
-            
+
             return;
         }
-
 
         var viewDirection = UxrAvatar.LocalAvatar.CameraForward;
         var input = UxrAvatar.LocalAvatarInput.GetInput2D(UxrHandSide.Left, UxrInput2D.Joystick);
@@ -39,25 +38,18 @@ public class Test : MonoBehaviour
 
         inputVertical -= UxrAvatar.LocalAvatarInput.GetInput1D(UxrHandSide.Left, UxrInput1D.Grip);
 
-        if (!UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Left, UxrInputButtons.Joystick))
-        {
-            var forwardDirection = Vector3.ProjectOnPlane(viewDirection, Vector3.up).normalized;
-            var rightDirection = Vector3.Cross(Vector3.up, forwardDirection);
 
-            // Bewegung relativ zur Welt
-            Vector3 verticalMovement = Vector3.up * inputVertical * moveSpeed * Time.deltaTime;
-            Vector3 horizontalMovement = (forwardDirection * input.y + rightDirection * input.x).normalized *
-                                         moveSpeed * Time.deltaTime;
+        var forwardDirection = Vector3.ProjectOnPlane(viewDirection, Vector3.up).normalized;
+        var rightDirection = Vector3.Cross(Vector3.up, forwardDirection);
+        var verticalMovement = Vector3.up * (inputVertical * moveSpeed * Time.deltaTime);
+        var horizontalMovement = (forwardDirection * input.y + rightDirection * input.x).normalized *
+                                 (moveSpeed * Time.deltaTime);
 
-            _rigidbody.MovePosition(transform.position + verticalMovement + horizontalMovement);
-        }
-        else
-        {
-            // Rotation relativ zur Welt
-            var rotation = UxrAvatar.LocalAvatarInput.GetInput2D(UxrHandSide.Left, UxrInput2D.Joystick).x *
-                           rotationSpeed * Time.deltaTime;
-            Quaternion deltaRotation = Quaternion.Euler(Vector3.up * rotation);
-            _rigidbody.MoveRotation(transform.rotation * deltaRotation);
-        }
+        _rigidbody.MovePosition(transform.position + verticalMovement + horizontalMovement);
+
+        var rotation = UxrAvatar.LocalAvatarInput.GetInput2D(UxrHandSide.Right, UxrInput2D.Joystick).x *
+                       rotationSpeed * Time.deltaTime;
+        var deltaRotation = Quaternion.Euler(Vector3.up * rotation);
+        _rigidbody.MoveRotation(transform.rotation * deltaRotation);
     }
 }

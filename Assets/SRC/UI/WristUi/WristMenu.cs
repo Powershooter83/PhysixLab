@@ -13,6 +13,8 @@ public class WristMenu : MonoBehaviour
     [SerializeField] private GameObject storePanel;
 
     [SerializeField] private GameObject manipulationPanel;
+
+    [SerializeField] private GameObject wallContainer;
     
 
     private void Update()
@@ -30,6 +32,7 @@ public class WristMenu : MonoBehaviour
         canvas.SetActive(isActive);
         if (isActive) return;
         storePanel.SetActive(false);
+        wallContainer.SetActive(false);
         manipulationPanel.SetActive(false);
         itemContainer.SetActive(false);
 

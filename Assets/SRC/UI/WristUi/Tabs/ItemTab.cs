@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class ItemTab : MonoBehaviour
 {
-    private int currentIndex = 0;
+    private int minPage = 0;
+    private int currentPage = 0;
+    private int maxPage;
 
 
     [SerializeField] private GameObject itemContainer;
@@ -29,16 +31,15 @@ public class ItemTab : MonoBehaviour
         items[3].SetActive(true);
         items[4].SetActive(true);
         items[5].SetActive(true);
-
+        maxPage = (int)Math.Ceiling((double)items.Count / 6) - 1;
 
         updateText();
     }
 
     private void reload()
     {
-        
         items.Clear();
-        
+
         var sortedChildren = itemContainer.transform.Cast<Transform>()
             .OrderBy(t => t.name)
             .Select(t => t.gameObject)
@@ -50,24 +51,24 @@ public class ItemTab : MonoBehaviour
             items.Add(child);
             child.SetActive(false);
         }
-        
-        
     }
-    
-    
+
 
     public void loadNextPage()
     {
+        if (currentPage == maxPage)
+        {
+            return;
+        }
         reload();
-        if (currentIndex >= (int)Math.Ceiling((double)items.Count / 6) - 1) return;
 
-        for (var i = currentIndex; i < currentIndex + 6; i++)
+        for (var i = currentPage; i < currentPage + 6; i++)
         {
             items[i].SetActive(false);
         }
 
-        currentIndex++;
-        for (var i = currentIndex * 6; i < currentIndex * 6 + 6; i++)
+        currentPage++;
+        for (var i = currentPage * 6; i < currentPage * 6 + 6; i++)
         {
             items[i].SetActive(true);
         }
@@ -77,22 +78,23 @@ public class ItemTab : MonoBehaviour
 
     private void updateText()
     {
-        _textMeshPro.SetText("Seite " + (currentIndex + 1) + " / " + (int)Math.Ceiling((double)items.Count / 6));
+        _textMeshPro.SetText("Seite " + (currentPage + 1) + " / " + (int)Math.Ceiling((double)items.Count / 6));
     }
 
     public void loadPreviousPage()
     {
+        if (currentPage == minPage) return;
+        
         reload();
-        if (currentIndex <= 0) return;
 
-        for (var i = currentIndex * 6; i < currentIndex * 6 + 6; i++)
+        for (var i = currentPage * 6; i < currentPage * 6 + 6; i++)
         {
             items[i].SetActive(false);
         }
 
-        currentIndex--;
+        currentPage--;
 
-        for (var i = currentIndex * 6; i < currentIndex * 6 + 6; i++)
+        for (var i = currentPage * 6; i < currentPage * 6 + 6; i++)
         {
             items[i].SetActive(true);
         }
