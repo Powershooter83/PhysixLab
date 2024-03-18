@@ -29,9 +29,9 @@ public class BuildingTab : MonoBehaviour
         buildings[0].SetActive(true);
         buildings[1].SetActive(true);
         buildings[2].SetActive(true);
-        buildings[3].SetActive(true);
-        buildings[4].SetActive(true);
-        buildings[5].SetActive(true);
+        // buildings[3].SetActive(true);
+        // buildings[4].SetActive(true);
+        // buildings[5].SetActive(true);
         maxPage = (int)Math.Ceiling((double)buildings.Count / 6) - 1;
 
         updateText();
