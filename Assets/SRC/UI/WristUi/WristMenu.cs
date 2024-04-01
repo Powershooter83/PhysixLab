@@ -1,6 +1,8 @@
+using DialogueEditor;
 using UltimateXR.Avatar;
 using UltimateXR.Core;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WristMenu : MonoBehaviour
 {
@@ -15,7 +17,15 @@ public class WristMenu : MonoBehaviour
     [SerializeField] private GameObject manipulationPanel;
 
     [SerializeField] private GameObject wallContainer;
-    
+
+    [SerializeField] private NPCConversation _npcConversation;
+    private bool isTutorial;
+    private bool hasTutorialSkipped = false;
+
+    private void Start()
+    {
+        isTutorial = SceneManager.GetActiveScene().name == "Tutorial";
+    }
 
     private void Update()
     {
@@ -30,6 +40,12 @@ public class WristMenu : MonoBehaviour
 
         var isActive = angle <= 30f && isPointingUp;
         canvas.SetActive(isActive);
+        if (isTutorial && !hasTutorialSkipped && isActive)
+        {
+            hasTutorialSkipped = true;
+            ConversationManager.Instance.StartConversation(_npcConversation);
+        }
+
         if (isActive) return;
         storePanel.SetActive(false);
         wallContainer.SetActive(false);
