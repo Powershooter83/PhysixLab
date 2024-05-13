@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.61854255, g: 0.71486586, b: 0.86884874, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -185,7 +185,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: 95db789e63fe04740a0be3723c36cd7d, type: 2}
   m_sharedMaterial: {fileID: -3138148791133844377, guid: 95db789e63fe04740a0be3723c36cd7d,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -3138148791133844377, guid: 95db789e63fe04740a0be3723c36cd7d, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1102,7 +1103,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: 95db789e63fe04740a0be3723c36cd7d, type: 2}
   m_sharedMaterial: {fileID: -3138148791133844377, guid: 95db789e63fe04740a0be3723c36cd7d,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -3138148791133844377, guid: 95db789e63fe04740a0be3723c36cd7d, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1795,7 +1797,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: 95db789e63fe04740a0be3723c36cd7d, type: 2}
   m_sharedMaterial: {fileID: -3138148791133844377, guid: 95db789e63fe04740a0be3723c36cd7d,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -3138148791133844377, guid: 95db789e63fe04740a0be3723c36cd7d, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -2405,7 +2408,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: 95db789e63fe04740a0be3723c36cd7d, type: 2}
   m_sharedMaterial: {fileID: -3138148791133844377, guid: 95db789e63fe04740a0be3723c36cd7d,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -3138148791133844377, guid: 95db789e63fe04740a0be3723c36cd7d, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
