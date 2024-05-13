@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - spawned
-  - spawned_building
+  - Stair
+  - Climbable
+  - RestZone
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Post Processing
-  - Hide
+  - 
+  - HiddenRuntime
+  - 
+  - 
+  - Trees
   - 
   - 
   - 
@@ -32,10 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - MeteoVFXElements
   - 
   - 
   - 
