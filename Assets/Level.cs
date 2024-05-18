@@ -1,6 +1,21 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Level", menuName = "Level")]
 public class Level : ScriptableObject
 {
-    public string aufgabe = "Die Starthöhe Beträgt 10m und das Ziel ist 10m entfernt, V0 liegt bei 10m/s2";
+    public Vector3 targetLocation;
+    public Vector3 portalLocation;
+    public LevelType levelType;
+    public string levelText;
+    public int launchAngle;
+    public int launchSpeed;
+    public string solution;
+}
+
+public enum LevelType
+{
+    Abschusswinkel,
+    Abschussgeschwindigkeit,
+    TargetVerschieben,
+    Abschusshoehe
 }

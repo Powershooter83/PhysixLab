@@ -1,13 +1,11 @@
-using System;
 using UnityEngine;
 
 public class DartBoard : MonoBehaviour
 {
+    [SerializeField] private LevelSystem _levelSystem;
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("YEAH HIT HIT HIT");
         Destroy(collision.gameObject);
-        Destroy(gameObject);
-        
+        _levelSystem.loadNextLevel();
     }
 }

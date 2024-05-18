@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23712575f162cf94f97200dd1b2f03b7, type: 3}
+  m_Name: level_2
+  m_EditorClassIdentifier: 
+  targetLocation: {x: -5, y: 44.25, z: -12.4}
+  portalLocation: {x: -5, y: 32.25, z: -12.4}
+  levelType: 1
+  levelText: "Mit welcher Geschwindigkeit wird der Ball gerade nach oben geworfen,
+    damit er an 12 Meter h\xF6he gelangt?"
+  launchAngle: 90
+  launchSpeed: 15
+  solution: 15.34

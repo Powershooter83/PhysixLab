@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "https://github.com/GlitchEnzo/NuGetForUnity.git?path=/src/NuGetForUnity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "12574c32f658fa23c194357141abc3fc157ea362"
+    },
     "com.meta.xr.mrutilitykit": {
       "version": "64.0.0",
       "depth": 1,
@@ -437,16 +444,6 @@
         "com.unity.shadergraph": "14.0.9",
         "com.unity.render-pipelines.core": "14.0.9"
       }
-    },
-    "com.unity.visualscripting": {
-      "version": "1.9.4",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
     },
     "com.unity.xr.legacyinputhelpers": {
       "version": "2.1.10",
