@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/FarFromHere/SampleEnvironment/DemoScenes/DemoScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scenes/scenes/Level.unity
+    guid: 12132312596adb74a84d9ff065184062
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: dfc13a67aee05864995d14ba076b604a,
       type: 2}
