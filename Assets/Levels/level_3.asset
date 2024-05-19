@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23712575f162cf94f97200dd1b2f03b7, type: 3}
-  m_Name: level_2
+  m_Name: level_3
   m_EditorClassIdentifier: 
-  targetLocation: {x: -5, y: 32.25, z: 8.06}
+  targetLocation: {x: -5, y: 32.25, z: -3.24}
   portalLocation: {x: -5, y: 32.25, z: -12.4}
-  levelType: 1
-  levelText: "Mit welcher Geschwindigkeit wird der Ball, mit einem Winkel von 22\xB0
-    zur Waagerechte, abgeschossen damit er eine Distanz von 20.46m erreicht?"
-  launchAngle: 22
-  launchSpeed: 0
-  solution: 17m/s
+  levelType: 0
+  levelText: "Welcher Abschusswinkel wird ben\xF6tigt, damit die Kugel mit 10m/s
+    Abwurfgeschwindigkeit, 9,16m weit fliegt?"
+  launchAngle: 0
+  launchSpeed: 10
+  solution: 32

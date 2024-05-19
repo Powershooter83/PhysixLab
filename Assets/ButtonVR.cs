@@ -1,4 +1,8 @@
+using System;
 using TMPro;
+using UltimateXR.Avatar;
+using UltimateXR.Core;
+using UltimateXR.Devices;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -27,6 +31,11 @@ public class ButtonVR : MonoBehaviour
         {
             whileHold.Invoke();
         }
+
+        if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Right, UxrInputButtons.Button1))
+        {
+            launchObject();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,26 +60,25 @@ public class ButtonVR : MonoBehaviour
 
     public void launchObject()
     {
+        if (_levelSystem.isBlocked())
+        {
+            return;
+        }
+
         if (_levelSystem.getActiveLevel().levelType == LevelType.Abschusswinkel)
         {
-            
             var xAngle = float.Parse(information.text.Replace(',', '.'));
-            var xAngleRad = xAngle * Mathf.Deg2Rad;
-            var initialDirection = new Vector3(Mathf.Cos(xAngleRad), Mathf.Sin(xAngleRad), 0);
-            var rotatedDirection = Quaternion.Euler(0, -90, 0) * initialDirection; 
-            var _projectile = Instantiate(sphere, launchpoint.position, launchpoint.rotation);
-            _projectile.GetComponent<Rigidbody>().velocity = rotatedDirection * _levelSystem.getActiveLevel().launchSpeed;
-            
+            LaunchNewProjectile(
+                _levelSystem.getActiveLevel().launchSpeed,
+                xAngle);
         }
 
         if (_levelSystem.getActiveLevel().levelType == LevelType.Abschussgeschwindigkeit)
         {
             var launchSpeed = float.Parse(information.text.Replace(',', '.'));
-            var xAngleRad = _levelSystem.getActiveLevel().launchAngle * Mathf.Deg2Rad;
-            var initialDirection = new Vector3(Mathf.Cos(xAngleRad), Mathf.Sin(xAngleRad), 0);
-            var rotatedDirection = Quaternion.Euler(0, -90, 0) * initialDirection;
-            var _projectile = Instantiate(sphere, launchpoint.position, launchpoint.rotation);
-            _projectile.GetComponent<Rigidbody>().velocity = rotatedDirection * launchSpeed;
+            LaunchNewProjectile(
+                launchSpeed,
+                _levelSystem.getActiveLevel().launchAngle);
         }
 
         if (_levelSystem.getActiveLevel().levelType == LevelType.Abschusshoehe)
@@ -78,12 +86,9 @@ public class ButtonVR : MonoBehaviour
             var portalHeight = float.Parse(information.text.Replace(',', '.'));
             _levelSystem.movePortal(portalHeight);
 
-            var xAngleRad = _levelSystem.getActiveLevel().launchAngle * Mathf.Deg2Rad;
-            var initialDirection = new Vector3(Mathf.Cos(xAngleRad), Mathf.Sin(xAngleRad), 0);
-            var rotatedDirection = Quaternion.Euler(0, -90, 0) * initialDirection;
-            var _projectile = Instantiate(sphere, launchpoint.position, launchpoint.rotation);
-            _projectile.GetComponent<Rigidbody>().velocity =
-                rotatedDirection * _levelSystem.getActiveLevel().launchSpeed;
+            LaunchNewProjectile(
+                _levelSystem.getActiveLevel().launchSpeed,
+                _levelSystem.getActiveLevel().launchAngle);
         }
 
         if (_levelSystem.getActiveLevel().levelType == LevelType.TargetVerschieben)
@@ -91,12 +96,16 @@ public class ButtonVR : MonoBehaviour
             var targetLocation = float.Parse(information.text.Replace(',', '.'));
             _levelSystem.moveTarget(targetLocation);
 
-            var xAngleRad = _levelSystem.getActiveLevel().launchAngle * Mathf.Deg2Rad;
-            var initialDirection = new Vector3(Mathf.Cos(xAngleRad), Mathf.Sin(xAngleRad), 0);
-            var rotatedDirection = Quaternion.Euler(0, -90, 0) * initialDirection;
-            var _projectile = Instantiate(sphere, launchpoint.position, launchpoint.rotation);
-            _projectile.GetComponent<Rigidbody>().velocity =
-                rotatedDirection * _levelSystem.getActiveLevel().launchSpeed;
+            LaunchNewProjectile(
+                _levelSystem.getActiveLevel().launchSpeed,
+                _levelSystem.getActiveLevel().launchAngle);
         }
+    }
+
+    void LaunchNewProjectile(float launchVelocity, float launchAngle)
+    {
+        GameObject newSphere = Instantiate(sphere, launchpoint.position, Quaternion.identity);
+        ProjectileMotion projectileMotion = newSphere.GetComponent<ProjectileMotion>();
+        projectileMotion.Launch(launchAngle, launchVelocity);
     }
 }

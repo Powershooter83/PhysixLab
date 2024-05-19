@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelSystem : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class LevelSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI levelTypeText;
     [SerializeField] private TextMeshProUGUI currentLevel;
+    [SerializeField] private GameObject fireworks;
 
     private Level activeLevel;
     private int currentLevelIndex = 0;
@@ -34,9 +37,37 @@ public class LevelSystem : MonoBehaviour
 
     public void loadNextLevel()
     {
+        StartCoroutine(ActivateTemporary());
         currentLevelIndex++;
+
+        if (currentLevelIndex >= Levels.Count)
+        {
+            win();
+            return;
+
+        }
+        
         activeLevel = Levels[currentLevelIndex];
         setupNewLevel();
+    }
+
+    IEnumerator ActivateTemporary()
+    {
+        fireworks.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        fireworks.SetActive(false);
+    }
+
+    public bool isBlocked()
+    {
+        return fireworks.activeSelf;
+    }
+    
+    public void win()
+    {
+
+        SceneManager.LoadScene("Menu");
+
     }
 
     public void setupNewLevel()
