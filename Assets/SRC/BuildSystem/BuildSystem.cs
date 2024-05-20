@@ -11,6 +11,9 @@ public class Test : MonoBehaviour
 
     private bool hasBeenPlaced = false;
 
+    public bool yRotation;
+    public bool zRotation;
+
 
     private void Start()
     {
@@ -46,9 +49,12 @@ public class Test : MonoBehaviour
                                  (moveSpeed * Time.deltaTime);
 
         _rigidbody.MovePosition(transform.position + verticalMovement + horizontalMovement);
-
+        
+        
+        
         var rotation = UxrAvatar.LocalAvatarInput.GetInput2D(UxrHandSide.Right, UxrInput2D.Joystick).x *
                        rotationSpeed * Time.deltaTime;
+
         var deltaRotation = Quaternion.Euler(Vector3.up * rotation);
         _rigidbody.MoveRotation(transform.rotation * deltaRotation);
     }

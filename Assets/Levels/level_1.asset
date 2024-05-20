@@ -15,8 +15,8 @@ MonoBehaviour:
   targetLocation: {x: -5, y: 32.25, z: -11.4}
   portalLocation: {x: -5, y: 32.25, z: -12.4}
   levelType: 2
-  levelText: "Ein Ball wird mit einer Anfangsgeschwindigkeit von 15m/s und mit einem
-    Abschusswinkel von 30\xB0 geworfen. Wie weit fliegt der Ball?"
+  levelText: "A ball is thrown with an initial velocity of 15m/s and a launch angle
+    of 30\xB0. How far does the ball fly?"
   launchAngle: 30
   launchSpeed: 15
   solution: 19,88

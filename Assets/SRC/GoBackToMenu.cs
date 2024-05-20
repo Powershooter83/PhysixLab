@@ -5,7 +5,7 @@ public class GoBackToMenu : MonoBehaviour
 {
     public void backToMainMenu()
     {
+        Debug.Log("YEAH");
         SceneManager.LoadScene("Menu");
-
     }
 }
