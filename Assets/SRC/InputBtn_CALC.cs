@@ -11,11 +11,15 @@ public class InputBtn_CALC : MonoBehaviour
     private bool isPressed;
 
     [SerializeField] private CALC calculate;
+    private SaveSystem _saveSystem;
 
     void Start()
     {
         sound = GetComponent<AudioSource>();
         isPressed = false;
+        
+        _saveSystem = GameObject.Find("SAVE_SYSTEM").GetComponent<SaveSystem>();
+        sound.volume = _saveSystem.getSoundVolume();
     }
     
     private void OnTriggerEnter(Collider other)

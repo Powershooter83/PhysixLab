@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject settingsBtn;
     [SerializeField] private GameObject exitBtn;
 
+    [SerializeField] private GameObject settings;
+
     public void quit()
     {
         Application.Quit();
@@ -23,6 +25,24 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("playground");
     }
 
+    public void openSettings()
+    {
+        playBtn.SetActive(false);
+        tutorialBtn.SetActive(false);
+        creditsBtn.SetActive(false);
+        settingsBtn.SetActive(false);
+        settings.SetActive(true);
+    }
+
+    public void closeSettings()
+    {
+        playBtn.SetActive(true);
+        tutorialBtn.SetActive(true);
+        creditsBtn.SetActive(true);
+        settingsBtn.SetActive(true);
+        settings.SetActive(false);
+    }
+    
     IEnumerator MyCoroutine()
     {
         yield return new WaitForSeconds(20);   //Wait one frame
