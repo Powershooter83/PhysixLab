@@ -80,23 +80,31 @@ public class LevelSystem : MonoBehaviour
         switch (activeLevel.levelType)
         {
             case LevelType.Abschussgeschwindigkeit:
-                levelTypeText.text = "Abschussgeschwindigkeit";
+                levelTypeText.text = "Launch velocity in m/s";
                 break;
             case LevelType.Abschusshoehe:
-                levelTypeText.text = "Abschusshöhe";
+                levelTypeText.text = "Launch height in m";
                 break;
             case LevelType.Abschusswinkel:
-                levelTypeText.text = "Abwurfwinkel zur Waagerechten";
+                levelTypeText.text = "Launch angle to the horizontal in degrees";
                 break;
             case LevelType.TargetVerschieben:
-                levelTypeText.text = "Zielscheibe Position";
+                levelTypeText.text = "Target position in m";
                 break;
         }
     }
 
     public void movePortal(float portalHeight)
     {
-        portal.transform.position += new Vector3(0, portalHeight, 0);
+
+        portal.transform.position = activeLevel.portalLocation;
+        
+        if (portalHeight > 0)
+        {
+            
+            portal.transform.position += new Vector3(0, portalHeight, 0);    
+        }
+        
     }
 
     public void moveTarget(float targetLocation)

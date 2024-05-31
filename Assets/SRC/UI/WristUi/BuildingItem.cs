@@ -8,11 +8,12 @@ using UnityEngine;
 public class BuildingItem : UxrGrabbableObjectComponent<BuildingItem>
 {
     [SerializeField] private Vector3 scaleAfterPlacing;
-
+    [SerializeField] private Vector3 rotation;
     private Test test;
 
     private GameObject spawnedObject;
 
+    
     protected override void OnObjectGrabbing(UxrManipulationEventArgs e)
     {
         var o = gameObject;
@@ -33,9 +34,10 @@ public class BuildingItem : UxrGrabbableObjectComponent<BuildingItem>
         spawnedObject.gameObject.name = spawnedObject.gameObject.name.Replace("(Clone)", "");
 
         spawnedObject.transform.localScale = scaleAfterPlacing;
+        spawnedObject.transform.eulerAngles = rotation;
         UxrCompass.Instance.SetTarget(spawnedObject.transform, UxrCompassDisplayMode.Location);
         test = spawnedObject.AddComponent<Test>();
-
+        
         spawnedObject.GetComponent<Rigidbody>().isKinematic = false;
 
         var buildingItemScript = spawnedObject.GetComponent<BuildingItem>();

@@ -25,6 +25,7 @@ public class ItemTab : MonoBehaviour
             child.gameObject.SetActive(false);
         }
 
+        updateText();
         items[0].SetActive(true);
         items[1].SetActive(true);
         items[2].SetActive(true);
@@ -32,8 +33,7 @@ public class ItemTab : MonoBehaviour
         items[4].SetActive(true);
         items[5].SetActive(true);
         maxPage = (int)Math.Ceiling((double)items.Count / 6) - 1;
-
-        updateText();
+        
     }
 
     private void reload()
@@ -68,17 +68,17 @@ public class ItemTab : MonoBehaviour
         }
 
         currentPage++;
+        updateText();
         for (var i = currentPage * 6; i < currentPage * 6 + 6; i++)
         {
             items[i].SetActive(true);
         }
-
-        updateText();
+        
     }
 
     private void updateText()
     {
-        _textMeshPro.SetText("Seite " + (currentPage + 1) + " / " + (int)Math.Ceiling((double)items.Count / 6));
+        _textMeshPro.SetText("Page " + (currentPage + 1) + " / " + (int)Math.Ceiling((double)items.Count / 6));
     }
 
     public void loadPreviousPage()
@@ -94,11 +94,11 @@ public class ItemTab : MonoBehaviour
 
         currentPage--;
 
+        updateText();
         for (var i = currentPage * 6; i < currentPage * 6 + 6; i++)
         {
             items[i].SetActive(true);
         }
-
-        updateText();
+        
     }
 }

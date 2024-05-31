@@ -24,8 +24,8 @@ public class ManipulationTab : MonoBehaviour
     public void updateShowTracing()
     {
         _showTracing = !_showTracing;
-        _textMeshPro4.SetText(_showTracing ? "aktiviert" : "deaktiviert");
-        _textMeshPro5.SetText(_showTracing ? "aktiviert" : "deaktiviert");
+        _textMeshPro4.SetText(_showTracing ? "activated" : "deactivated");
+        _textMeshPro5.SetText(_showTracing ? "activated" : "deactivated");
     }
 
 

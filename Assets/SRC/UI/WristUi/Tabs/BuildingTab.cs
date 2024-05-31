@@ -19,7 +19,6 @@ public class BuildingTab : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("YEAHHH");
         foreach (Transform child in buildingContainer.transform)
         {
             buildings.Add(child.gameObject);
@@ -29,9 +28,9 @@ public class BuildingTab : MonoBehaviour
         buildings[0].SetActive(true);
         buildings[1].SetActive(true);
         buildings[2].SetActive(true);
-        // buildings[3].SetActive(true);
-        // buildings[4].SetActive(true);
-        // buildings[5].SetActive(true);
+        buildings[3].SetActive(true);
+        buildings[4].SetActive(true);
+        buildings[5].SetActive(true);
         maxPage = (int)Math.Ceiling((double)buildings.Count / 6) - 1;
 
         updateText();
@@ -45,7 +44,6 @@ public class BuildingTab : MonoBehaviour
             .OrderBy(t => t.name)
             .Select(t => t.gameObject)
             .ToList();
-
 
         foreach (var child in sortedChildren)
         {
@@ -61,36 +59,40 @@ public class BuildingTab : MonoBehaviour
         {
             return;
         }
+
         reload();
 
         for (var i = currentPage; i < currentPage + 6; i++)
         {
             buildings[i].SetActive(false);
         }
-
+        
         currentPage++;
+        updateText();
         for (var i = currentPage * 6; i < currentPage * 6 + 6; i++)
         {
             buildings[i].SetActive(true);
         }
-
-        updateText();
     }
 
     private void updateText()
     {
-        Debug.Log("UPDATE TEXT" + maxPage);
-        _textMeshPro.SetText("Seite " + (currentPage + 1) + " / " + (int)Math.Ceiling((double)buildings.Count / 6));
+        _textMeshPro.SetText("Page " + (currentPage + 1) + " / " + (int)Math.Ceiling((double)buildings.Count / 6));
     }
 
     public void loadPreviousPage()
     {
         if (currentPage == minPage) return;
-        
+
         reload();
 
         for (var i = currentPage * 6; i < currentPage * 6 + 6; i++)
         {
+            if (buildings.Count > i)
+            {
+                break;
+            }
+
             buildings[i].SetActive(false);
         }
 

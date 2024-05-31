@@ -7,6 +7,8 @@ TagManager:
   - Stair
   - Climbable
   - RestZone
+  - spawned
+  - spawned_building
   layers:
   - Default
   - TransparentFX

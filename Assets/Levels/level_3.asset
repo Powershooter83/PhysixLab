@@ -15,8 +15,8 @@ MonoBehaviour:
   targetLocation: {x: -5, y: 32.25, z: -3.24}
   portalLocation: {x: -5, y: 32.25, z: -12.4}
   levelType: 0
-  levelText: "Welcher Abschusswinkel wird ben\xF6tigt, damit die Kugel mit 10m/s
-    Abwurfgeschwindigkeit, 9,16m weit fliegt?"
+  levelText: What launch angle is required for the ball to fly 9.16m at a launch
+    speed of 10m/s?
   launchAngle: 0
   launchSpeed: 10
   solution: 32

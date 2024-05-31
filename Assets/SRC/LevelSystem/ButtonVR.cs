@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using TMPro;
 using UltimateXR.Avatar;
 using UltimateXR.Core;
@@ -67,7 +68,8 @@ public class ButtonVR : MonoBehaviour
 
         if (_levelSystem.getActiveLevel().levelType == LevelType.Abschusswinkel)
         {
-            var xAngle = float.Parse(information.text.Replace(',', '.'));
+            var xAngle = float.Parse(information.text.Replace(',', '.'), 
+                new CultureInfo("en-US").NumberFormat);
             LaunchNewProjectile(
                 _levelSystem.getActiveLevel().launchSpeed,
                 xAngle);
@@ -75,7 +77,8 @@ public class ButtonVR : MonoBehaviour
 
         if (_levelSystem.getActiveLevel().levelType == LevelType.Abschussgeschwindigkeit)
         {
-            var launchSpeed = float.Parse(information.text.Replace(',', '.'));
+            var launchSpeed = float.Parse(information.text.Replace(',', '.'), 
+                new CultureInfo("en-US").NumberFormat);
             LaunchNewProjectile(
                 launchSpeed,
                 _levelSystem.getActiveLevel().launchAngle);
@@ -83,7 +86,8 @@ public class ButtonVR : MonoBehaviour
 
         if (_levelSystem.getActiveLevel().levelType == LevelType.Abschusshoehe)
         {
-            var portalHeight = float.Parse(information.text.Replace(',', '.'));
+            var portalHeight = float.Parse(information.text.Replace(',', '.'), 
+                new CultureInfo("en-US").NumberFormat);
             _levelSystem.movePortal(portalHeight);
 
             LaunchNewProjectile(
@@ -93,7 +97,8 @@ public class ButtonVR : MonoBehaviour
 
         if (_levelSystem.getActiveLevel().levelType == LevelType.TargetVerschieben)
         {
-            var targetLocation = float.Parse(information.text.Replace(',', '.'));
+            var targetLocation = float.Parse(information.text.Replace(',', '.'), 
+                new CultureInfo("en-US").NumberFormat);
             _levelSystem.moveTarget(targetLocation);
 
             LaunchNewProjectile(

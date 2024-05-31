@@ -15,8 +15,8 @@ MonoBehaviour:
   targetLocation: {x: -5, y: 32.25, z: 8.06}
   portalLocation: {x: -5, y: 32.25, z: -12.4}
   levelType: 1
-  levelText: "Mit welcher Geschwindigkeit wird der Ball, mit einem Winkel von 22\xB0
-    zur Waagerechte, abgeschossen damit er eine Distanz von 20.46m erreicht?"
+  levelText: "At what speed is the ball shot at an angle of 22\xB0 to the horizontal
+    so that it reaches a distance of 20.46m?"
   launchAngle: 22
   launchSpeed: 0
   solution: 17m/s
